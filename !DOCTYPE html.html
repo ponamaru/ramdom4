@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button id="loadButton">Load File</button>
+    <pre id="fileContent"></pre>
+    <script>
+      const loadButton = document.getElementById('loadButton');
+      const fileContent = document.getElementById('fileContent');
+
+      loadButton.addEventListener('click', () => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'update1-main/2.html', true);
+
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            document.body.innerHTML = xhr.responseText;
+          }
+        };
+
+        xhr.send();
+      });
+
+    </script>
+  </body>
+</html>
+
